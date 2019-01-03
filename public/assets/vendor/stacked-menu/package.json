@@ -1,0 +1,132 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "stacked-menu",
+        "scope": null,
+        "escapedName": "stacked-menu",
+        "name": "stacked-menu",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/home/ec2-user/environment/nodeJSTemp"
+    ]
+  ],
+  "_from": "stacked-menu@latest",
+  "_hasShrinkwrap": false,
+  "_id": "stacked-menu@1.1.12",
+  "_inCache": true,
+  "_location": "/stacked-menu",
+  "_nodeVersion": "8.11.4",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/stacked-menu_1.1.12_1543148624422_0.9188058896676794"
+  },
+  "_npmUser": {
+    "name": "bent10",
+    "email": "bent10@stilearning.com"
+  },
+  "_npmVersion": "6.4.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "stacked-menu",
+    "scope": null,
+    "escapedName": "stacked-menu",
+    "name": "stacked-menu",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/stacked-menu/-/stacked-menu-1.1.12.tgz",
+  "_shasum": "8d3dfc64a05665737b3265060a5d1f41d63df856",
+  "_shrinkwrap": null,
+  "_spec": "stacked-menu",
+  "_where": "/home/ec2-user/environment/nodeJSTemp",
+  "author": {
+    "name": "Beni Arisandi",
+    "email": "bent10@stilearning.com"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/bent10/stacked-menu/issues"
+  },
+  "contributors": [],
+  "dependencies": {},
+  "description": "A flexible stacked navigation menu.",
+  "devDependencies": {
+    "autoprefixer": "^8.6.4",
+    "browser-sync": "^2.24.5",
+    "css-declaration-sorter": "^3.0.1",
+    "del": "^3.0.0",
+    "docdash": "^0.4.0",
+    "gulp": "^4.0.0",
+    "gulp-better-rollup": "^3.3.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-postcss": "^7.0.1",
+    "gulp-rename": "^1.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-zip": "^4.1.0",
+    "jsdoc": "^3.5.5",
+    "rollup-plugin-buble": "^0.19.2",
+    "rollup-plugin-cleanup": "^3.0.0-beta.1",
+    "rollup-plugin-eslint": "^4.0.0",
+    "rollup-plugin-uglify-es": "0.0.1"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-43pm9b9kGXg7NSIfuKgT3b7vzZS6pzygNcV+YAzlt7CGxpQw1SOtSduVXy5s8igH36Mvv0tJSI//vlOFl4TClA==",
+    "shasum": "8d3dfc64a05665737b3265060a5d1f41d63df856",
+    "tarball": "https://registry.npmjs.org/stacked-menu/-/stacked-menu-1.1.12.tgz",
+    "fileCount": 34,
+    "unpackedSize": 244563,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb+pRRCRA9TVsSAnZWagAAnKAP/i2G2rNgyjK3ljJyB3JE\nj2OL8jVBnxHWfz7wv8elqNKtBUi645dfamgp5K2TdcT4+l7F/5saVzYdx1gs\n8jGFi95Kj9oBQHXVnh5c6ZlVjMzCd4qWJD22ux+PeIZXHtiJStNzj1LuAL6S\nhGHHaJj6CTleHiiYHxfRE3ejy43QGOJVn+VsnZLy7p3X39CIf+Vtt1+jZZzS\nicYkaiVFxXA/fDj2KDMsKPXDGBUxbsQPKByCae7FWbml4udoXGzG9xPsiD3f\nsBDC//WYlxzQQcBuS+vvYYYTV120FJ2vMHVENPMden232plAkbndG+GHIaWP\ntfbSjdq5/HxBcAUegSHFf6Vmcd6M1rWirNmsXDC5zCOILxDFr6IaWuap8ZoE\neB6qMI4ApvAbCtb5uJ8mMhTnV+otwxHRZTOCPzj1iheadBwYYkKcHsynzBld\ny+W4fhVT3JiRD8FLYD1Jwv2YmFj14d5L6vqyjwknhjubVX6NShEpCvnH6W1O\nlxnM3JQR8Y3C6zz7iuZJYmDFbfjGOYs9Fz/teJI75FmjULzPpeMBBIfKLP5N\nDUCsfnHcEr8yItQ27PDz4zjfVNUryu7KbsmRaLCLnA5RqCq8byqpLeTEyqMj\nYQsZ/pPQ7Hnyy9XE2lgs2drC8UVvAuybfluSGMeSH+8xVt2ywNPXEmxuBcWn\nUGQa\r\n=un8m\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "documentation": "https://docs.stilearning.com/drawerjs/latest/StackedMenu.html",
+  "gitHead": "436b5985a635a05e0b43e67ab64d0a311f421e40",
+  "homepage": "https://bent10.gitlab.io/stacked-menu/",
+  "keywords": [
+    "navigation",
+    "stacked menu",
+    "menu",
+    "library",
+    "plugin",
+    "javascript",
+    "es2015",
+    "module",
+    "layout",
+    "responsive",
+    "mobile",
+    "web"
+  ],
+  "license": "MIT",
+  "main": "dist/js/stacked-menu.js",
+  "maintainers": [
+    {
+      "name": "bent10",
+      "email": "bent10@stilearning.com"
+    }
+  ],
+  "module": {
+    "amd": "dist/js/amd/stacked-menu.js",
+    "commonjs": "dist/js/commonjs/stacked-menu.js",
+    "es6": "dist/js/es6/stacked-menu.js",
+    "umd": "dist/js/umd/stacked-menu.js"
+  },
+  "name": "stacked-menu",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/bent10/stacked-menu.git"
+  },
+  "sass": "src/scss/stacked-menu.scss",
+  "scripts": {
+    "docs": "jsdoc -c jsdoc.json && gulp serve:docs"
+  },
+  "style": "dist/js/stacked-menu.css",
+  "version": "1.1.12"
+}

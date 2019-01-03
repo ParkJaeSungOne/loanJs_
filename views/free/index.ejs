@@ -1,0 +1,133 @@
+<% include ../partials/header %>
+    <div class="wrapper">
+        <div class="page">
+            <div class="container page-inner">
+                <ol class="breadcrumb" style="padding-left: 1em;padding-right: 1em;padding-bottom:0.6em;padding-top:0.6em;">
+                    <li class="breadcrumb-item active" style="color: #eaeaea;" id="breadcrumb-streamer-detail-board"> 자유게시판 </li>
+                </ol>
+                <div class="page-section mt-2">
+                    <div class="section-block mt-4"> 
+                        <section class="card card-fluid">
+                            <header class="card-header">
+                                <div class="row" style="align-items: center;">
+                                    <a href="free" class="mr-auto col-6 mt-2">
+                                        <h6><i class="far fa-comment-dots mr-2" style="color:#346cb0;"></i> 자유게시판 </h6>
+                                    </a>
+                                    <span class="text-right col col-xs-0 align-middle main-body-section-more" style="font-size: 14px;" id="main-board-documents-header-more"></span>
+                                    <% if(isAuthenticated){ %>
+                                     <span class="text-right col align-middle" style="font-size: 14px;vertical-align: middle;align-items: center; width:20px;max-width: 5em;">
+                                        <button type="button" class="btn btn-outline-primary" style="font-size: 0.9em;padding-top: 0.4em;padding-bottom: 0.4em;padding-left: 0.6em;padding-right: 0.6em;" onclick="window.location.href='free/create'" >글쓰기</button>
+                                    </span> 
+                                    <% } %>
+                                </div>
+                            </header>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="input-group input-group-alt">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <span class="oi oi-magnifying-glass"></span>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="제목 검색" value="<%=search_word%>" id="search_keyword" onkeyup="if(window.event.keyCode == 13) document.getElementById('search_button').click();"> 
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-secondary" data-toggle="" id="search_button" onclick="fncSearch();">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr style="font-size: 14px;">
+                                                <th style="overflow: auto;white-space: nowrap;" class="d-none d-md-table-cell"></th>
+                                                <th style="min-width:320px;overflow: auto;white-space: nowrap;" class="d-none d-md-table-cell"> 제목 </th>
+                                                <th style="overflow: auto;white-space: nowrap;" class="d-none d-md-table-cell"> 작성자 </th>
+                                                <th style="overflow: auto;white-space: nowrap;" class="d-none d-md-table-cell"> 날짜 </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody  id="main-board-documents-tbody">
+                                            <% if(posts == null || posts.length == 0){ %>
+                                                <tr class="board-list-tr">
+                                                    <td class="align-middle" colspan="6"> <h4 class="text-center">작성된 글이 없습니다. :) </h4> </td>
+                                                </tr>
+                                            <% } %>
+                                            <% posts.forEach(function(post) {
+                                                var ellipsisTitle = post.title;
+                                                if(ellipsisTitle.length > 70){
+                                                    ellipsisTitle = post.title.substring(0,70)+"...";
+                                                }
+                                            %>
+                                                <tr class="board-list-tr" style="font-size: 13px;height:35px;">
+                                                    <td class="align-middle d-none d-md-table-cell" style="color:#959595;"><%=post.id%></td>
+                                                    <td class="d-none d-md-table-cell" style="max-width: 300px;white-space:nowrap; overflow: hidden;text-overflow:ellipsis">
+                                                        <a href="/free/<%=post.id%>?page=<%=page%>&search_word=<%=search_word%>" style= "color: #333;"><%=ellipsisTitle%></a>
+                                                    </td>
+                                                    <td class="align-middle d-none d-md-table-cell"><%= post.author ? post.author.nickname : "" %></td>
+                                                    <td class="align-middle d-none d-md-table-cell"><%=post.createdDate%></td>
+                                                    <td class="align-middle d-table-cell d-md-none ml-0 mr-0 pl-0 pr-0">
+                                                        <div >
+                                                            <p class="mb-2 mt-1" style="font-size: 14px;max-width: 270px;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;">
+                                                                <a href="/free/<%=post.id%>?page=<%=page%>&search_word=<%=search_word%>"style= "color: #333;"><%=ellipsisTitle%></a>
+                                                            </p>
+                                                            <p class="text-muted row mb-1" style="align-items:center;margin-left:0px;">
+                                                                <span style="font-size: 12px;"><%= post.author ? post.author.nickname : "" %> | <%=post.createdDate%></span>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <% }) %>
+                                            <tr class="board-list-tr">
+                                                <td class="align-middle text-center mt-3 mb-3" colspan="6"> 
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="pagination justify-content-center mt-4" id="main-board-documents-pagination">
+                                    <li class="page-item <%if(page == 1){%>disabled<%}%>"> 
+                                       <a href="/free?page=<%=page-1%>" class="page-link">
+                                         <i class="fa fa-lg fa-angle-left"></i>
+                                       </a>
+                                     </li>
+                                    <%
+                                        var offset = 3;
+                                        for(i = 1; i <= maxPage; i ++){
+                                            if(i <= offset || i > maxPage-offset || (i >= page-(offset-1) && i <= page+(offset-1))){
+                                            %>
+                                                    <li class="page-item <%if(i===page){%>active<%}%>">
+                                                        <a class="page-link" href="/free?page=<%=i%>"><%=i%></a>
+                                                    </li>
+                                            <%
+                                            }else if(i == offset+1 || i == maxPage-offset){
+                                    %>
+                                                    ...
+                                    <%
+                                            }
+                                        }
+                                    %>
+                                    <li class="page-item <%if(page == maxPage){%>disabled<%}%>"> 
+                                       <a href="/free?page=<%=page+1%>" class="page-link">
+                                         <i class="fa fa-lg fa-angle-right"></i>
+                                       </a>
+                                     </li>
+                                </ul>
+                            </div>
+                        </section>
+                   </div>
+    			</div>
+            </div>
+        </div>
+    </div>
+<% include ../partials/footer %>
+<script>
+    function fncSearch(){
+        var search_word = $("#search_keyword").val();
+        location.href='/free?search_word=' + search_word;
+    }
+    
+</script>

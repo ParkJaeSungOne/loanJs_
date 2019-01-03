@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title> NOODEJS TEMP </title>
+        <meta property="og:title" content="NOODEJS TEMP">
+        <meta name="author" content="NOODEJS TEMP">
+        <meta property="og:locale" content="ko_KR">
+        <meta name="description" content="NOODEJS TEMP">
+        <meta property="og:description" content="NOODEJS TEMP">
+        <meta property="og:site_name" content="NOODEJS TEMP">
+        <meta name="theme-color" content="#346cb0" />
+        <meta name="theme-color" content="#3063A0">
+        <script src="/assets/vendor/pace/pace.min.js"></script>
+        <link rel="stylesheet" href="/assets/vendor/pace/pace.min.css">
+        <link rel="stylesheet" href="/assets/vendor/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="/assets/vendor/flatpickr/dist/flatpickr.min.css">
+        <link rel="stylesheet" href="/assets/stylesheets/main.min.css">
+        <link rel="stylesheet" href="/assets/stylesheets/custom.css">
+        <script src="/js/common.js"></script>
+    </head>
+    <body>
+        <div class="app has-fullwidth">
+            <header class="app-header"  style="background-color: #346cb0;">
+                <div class="container top-bar">
+                    <div class="top-bar-brand">
+                        <a href="/">
+                            <font style="font-size: 20px;font-style: normal;"><strong><span style="color:#e67e22">NODEJS</span> TEMP</strong></font>
+                        </a>
+                    </div>
+                    <div class="top-bar-list">
+                        <div class="top-bar-item px-2 d-md-none d-lg-none d-xl-none">
+                            <a href="/">
+                                <font style="font-size: 18px;font-style: normal;color:white;"><span style="color:#e67e22"><strong>NODEJS</strong></span> <strong>TEMP</strong></font>
+                            </a>
+                        </div>
+                        <div class="top-bar-item top-bar-item-right px-2 d-sm-flex">
+                            <% if(isAuthenticated){ %>
+                                <div class="top-bar-link"><a class="top-bar-link-href" href="/logout">로그아웃</a></div>   
+                            <% } else { %>
+                                <div class="top-bar-link"><a class="top-bar-link-href" href="/login">로그인</a></div>   
+                            <% }%>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!--<script src="js/tosjs.js"></script>-->
+            <main class="app-main" style="background-color: #eaeaea;background-image: url('/image/main_img.jpg');background-repeat: no-repeat;">
+                <nav class="bg-dark" style="height: 42px;vertical-align: middle;margin: 0 auto;background: rgba(46, 51, 56, 0.5)!important;">
+                    <div class="container sub-bar-link" style="align-items: center;overflow-x: auto;white-space: nowrap;overflow-y: hidden;vertical-align: middle;">
+                        <a class="sub-bar-link-href nav-link active mt-1" href="./" style="heght:100%;display: inline-block;text-decoration: none;text-align: center;vertical-align: middle;">홈</a>
+                        <a class="sub-bar-link-href nav-link  mt-1" href="/free" style="display: inline-block;text-decoration: none;text-align: center;vertical-align: middle;">자유게시판</a>
+                        <a class="sub-bar-link-href nav-link  mt-1" href="/notice" style="display: inline-block;text-decoration: none;text-align: center;vertical-align: middle;">공지사항</a>
+                        <a class="sub-bar-link-href nav-link  mt-1" href="게시판3" style="align-items: center;display: inline-block;text-decoration: none;text-align: center;vertical-align: middle;">게시판3</a>
+                        <a class="sub-bar-link-href nav-link  mt-1" href="게시판4" style="display: inline-block;text-decoration: none;text-align: center;vertical-align: middle;">게시판4</a>
+                        <a class="sub-bar-link-href nav-link  mt-1" href="게시판5" style="display: inline-block;text-decoration: none;text-align: center;vertical-align: middle;">게시판5</a>
+                    </div>
+                </nav>		
+                
+                

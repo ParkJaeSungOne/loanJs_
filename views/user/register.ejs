@@ -1,0 +1,77 @@
+<% include ../partials/header %>
+    <div class="wrapper">
+        <div class="page">
+            <div class="container page-inner">
+                <div class="page-section">
+                    <main class="auth">
+                        <header id="auth-header" class="auth-header" style="background-color: transparent;padding-top:1.5em;">
+                            <h1>
+                                <font style="font-size: 40px;font-style: normal;"><strong><span style="color:#e67e22">회원</span>가입</strong></font>
+                            </h1>
+                        </header>
+                        <form class="auth-form text-center" style="background-color: #f2f2f2" action="/user/register" method="post">
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <input type="text" id="username" name="username" value="<%= user.username %>" class="form-control" placeholder="ID" autofocus="" required="asdf">
+                                    <label for="username">ID</label>
+                                    <% if(errors.username){ %>
+                                     <span class=""><%= errors.username.message %></span>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="비밀번호" required="">
+                                    <label for="password">비밀번호</label>
+                                    <% if(errors.password){ %>
+                                     <span class="-block"><%= errors.password.message %></span>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <input type="password" id="passwordConfirmation" name="passwordConfirmation" class="form-control" placeholder="비밀번호 확인" required="">
+                                    <label for="passwordConfirmation">비밀번호 확인</label>
+                                </div>
+                            </div>
+                            <% if(errors.passwordConfirmation){ %>
+                             <span class=""><%= errors.passwordConfirmation.message %></span>
+                            <% } %>
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <input type="text" id="name" name="name" value="<%= user.name %>" class="form-control" placeholder="이름" required="">
+                                    <label for="name">이름</label>
+                                </div>
+                            </div>
+                            <% if(errors.name){ %>
+                             <span class="help-block"><%= errors.name.message %></span>
+                            <% } %>
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <input type="text" id="nickname" name ="nickname" value="<%=user.nickname%>" class="form-control" placeholder="별명" required="">
+                                    <label for="nickname">별명</label>
+                                </div>
+                            </div>
+                            <% if(errors.nickname){ %>
+                             <span class="help-block"><%= errors.nickname.message %></span>
+                            <% } %>
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <input type="text" id="email" name="email" value="<%= user.email %>" class="form-control" placeholder="이메일" required="">
+                                    <label for="email">이메일</label>
+                                </div>
+                            </div>
+                            <% if(errors.email){ %>
+                             <span class="help-block"><%= errors.email.message %></span>
+                            <% } %>
+                            <div class="form-group">
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">가입하기</button>
+                            </div>
+                        </form>
+                        <footer class="auth-footer"> © 2018 NODEJS TEMP All Rights Reserved.</footer>
+                    </main>
+			    </div>
+            </div>
+        </div>
+    </div>
+<% include ../partials/footer %>

@@ -1,0 +1,72 @@
+<% include ../partials/header %>
+    <div class="wrapper">
+        <div class="page">
+            <div class="container page-inner">
+                <ol class="breadcrumb" style="padding-left: 1em;padding-right: 1em;padding-bottom:0.6em;padding-top:0.6em;">
+                    <li class="breadcrumb-item active" style="color: #eaeaea;" id="breadcrumb-streamer-detail-board"> 공지사항 </li>
+                </ol>
+                <div class="page-section mt-2">
+                    <div class="section-block mt-4"> 
+                        <section class="card card-fluid">
+                            <header class="card-header">
+                                <div class="row" style="align-items: center;">
+                                    <a href="notice" class="mr-auto col-6 mt-2">
+                                        <h6><i class="far fa-comment-dots mr-2" style="color:#346cb0;"></i> 공지사항 </h6>
+                                    </a>
+                                    <span class="text-right col col-xs-0 align-middle main-body-section-more" style="font-size: 14px;" id="main-board-documents-header-more"></span>
+                                    <% if(isAuthenticated){ %>
+                                     <span class="text-right col align-middle" style="font-size: 14px;vertical-align: middle;align-items: center; width:20px;max-width: 5em;">
+                                        <button type="button" class="btn btn-outline-primary" style="font-size: 0.9em;padding-top: 0.4em;padding-bottom: 0.4em;padding-left: 0.6em;padding-right: 0.6em;" onclick="window.location.href='notice/create'" >글쓰기</button>
+                                    </span> 
+                                    <% } %>
+                                </div>
+                            </header>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="input-group input-group-alt">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <span class="oi oi-magnifying-glass"></span>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="제목 검색" id="search_keyword" onkeyup="if(window.event.keyCode == 13) document.getElementById('search_button').click();"> 
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-secondary" data-toggle="" id="search_button" onclick="">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr style="font-size: 14px;">
+                                                <th style="overflow: auto;white-space: nowrap;" class="d-none d-md-table-cell"></th>
+                                                <th style="min-width:320px;overflow: auto;white-space: nowrap;" class="d-none d-md-table-cell"> 제목 </th>
+                                                <th style="overflow: auto;white-space: nowrap;" class="d-none d-md-table-cell"> 작성자 </th>
+                                                <th style="overflow: auto;white-space: nowrap;" class="d-none d-md-table-cell"> 날짜 </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody  id="main-board-documents-tbody">
+                                            <tr class="board-list-tr">
+                                                <td class="align-middle text-center mt-3 mb-3" colspan="4"> <div class="loader"></div> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="pagination justify-content-center mt-4" id="main-board-documents-pagination">
+                                    
+                                </ul>
+                            </div>
+                        </section>
+                   </div>
+    			</div>
+            </div>
+        </div>
+    </div>
+<% include ../partials/footer %>
+<script>
+    getBoardList('notice', 1);
+</script>

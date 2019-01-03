@@ -1,0 +1,85 @@
+<% include partials/header %>
+    <div class="wrapper">
+        <div class="page">
+            <div class="container page-inner">
+                <div class="page-section">
+                    <div class="section-block">
+                        <form class="form-inline col-md-6 col-sm-12 mb-5" style="padding-left: 5px; padding-right: 5px;margin: 0 auto;align-items: center;">
+                        	<div class="top-bar-search" style="padding-left: 5px; padding-right: 5px;">
+                                <div class="input-group has-clearable" style="border-color: #76bed9 !important;border: solid 2.5px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <span class="oi oi-magnifying-glass"></span>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-lg" aria-label="Search" placeholder="검색" id="search_keyword" onkeyup="if(window.event.keyCode == 13) document.getElementById('search_button').click();">
+                                    <input type="text" style="display: none;" />
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-secondary" id="search_button" onclick="getHomeStreamerSearch();" style="margin: 2px;">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+			                <div class="col-lg-6 ml-0 mr-0">
+			                    <section class="card card-fluid" style="border-radius: 0;">
+			                        <header class="card-header" style="background-color: #346cb0;border-radius: 0;">
+                                        <span class="row" style="align-items: center;">
+                                            <span class="ml-3 align-middle" style="font-size: 16px;color:#eaeaea;"><i class="far fa-comment-dots mr-2" style="color:#eaeaea;"></i> 게시판1 </span>
+                                            <span class="text-right col align-middle main-body-section-more" style="font-size: 14px;">
+                                                <a href="free" style="vertical-align: middle;align-items: center;"> 
+                                                    <button type="button" class="btn btn-outline-light btn-sm"><strong> 더 보기 </strong></button>
+                                                </a>
+                                            </span>
+                                        </span>
+                                    </header>
+			                        <div class="list-group list-group-bordered mb-3 mt-2" id="community-document-group-tos_board_free" style="border-radius: 0;">
+			                        	 <% frees.forEach(function(free) { 
+                                                var ellipsisTitle = free.title;
+                                                if(ellipsisTitle.length > 45){
+                                                    ellipsisTitle = free.title.substring(0,45)+"...";
+                                                }
+                                            %>
+		                                <a href="/free/<%=free.id%>" class="list-group-item list-group-item-action board-main-list-item">
+		                                    <div class="list-group-item-body">
+		                                        <p class="card-title mb-3 mt-1" style="white-space:nowrap;overflow: hidden;text-overflow: ellipsis;"><%=ellipsisTitle%></p>
+		                                        <p class="card-subtitle text-muted row mb-2" style="align-items:center;">
+		                                            <span class="list-badge-text ml-2" style="font-size: 13px;"><%= free.author ? free.author.nickname : "" %></span>
+					                                <span class="list-badge-text ml-2" style="font-size: 13px;align-items: center;"><%=free.createdDate%></span>
+					                            </p>
+					                        </div>
+					                    </a>
+					                    <%
+			                        	    });
+					                    %>
+			                        </div>
+			                    </section>
+			                </div>
+			                <div class="col-lg-6 ml-0 mr-0">
+			                    <section class="card card-fluid" style="border-radius: 0;">
+			                        <header class="card-header" style="background-color: #346cb0;border-radius: 0;">
+                                        <span class="row" style="align-items: center;">
+                                            <span class="ml-3 align-middle" style="font-size: 16px;color:#eaeaea;"><i class="far fa-comment-dots mr-2" style="color:#eaeaea;"></i> 게시판2 </span>
+                                            <span class="text-right col align-middle main-body-section-more" style="font-size: 14px;">
+                                                <a href="board.php?mid=tos_board_free" style="vertical-align: middle;align-items: center;"> 
+                                                    <button type="button" class="btn btn-outline-light btn-sm"><strong> 더 보기 </strong></button>
+                                                </a>
+                                            </span>
+                                        </span>
+                                    </header>
+			                        <div class="list-group list-group-bordered mb-3 mt-2" id="community-document-group-tos_board_free" style="border-radius: 0;">
+			                            <div class="align-middle text-center mt-3 mb-3" colspan="5"> 
+			                                
+			                            </div>
+			                        </div>
+			                    </section>
+			                </div>
+			            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% include partials/footer %>

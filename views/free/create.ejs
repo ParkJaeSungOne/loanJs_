@@ -1,0 +1,101 @@
+<% include ../partials/header %>
+    <div class="wrapper">
+        <div class="page">
+            <div class="container page-inner">
+                <ol class="breadcrumb" style="padding-left: 1em;padding-right: 1em;padding-bottom:0.6em;padding-top:0.6em;">
+                    <li class="breadcrumb-item" style="color: #c3c3c3;">
+                        <a href="/free"> 자유게시판 </a>
+                    </li>
+                    <li class="breadcrumb-item active" style="color: #eaeaea;"> 글쓰기 </li>
+                </ol>
+                <form method="post" action ="create" id = "createFrm">
+                    <div class="page-section mt-2">
+                        <section class="card card-fluid">
+                            <header class="card-header">
+                                <span class="row" style="align-items: center;">
+                                    <span class="mr-auto col-lg-6 col-md-9 mt-2"><h6 ><i class="far fa-comment-dots mr-2" style="color:#346cb0;"></i> 자유게시판 - 글쓰기</h6></span>
+                                    <span class="text-right col align-middle main-body-section-more" style="font-size: 14px;" id="main-board-documents-header-more"></span>
+                                </span>
+                                <div class="form-group mt-1 mb-0" id="board-regist-title-form-group">
+                                    <div class="input-group input-group-alt">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <strong>제목</strong>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="" id="title" name = "title" maxlength="100" onkeyup="" > 
+                                            <% if(errors.title){ %>
+                                             <span class=""><%= errors.title.message %></span>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </header>
+                            <textArea id="writeEditor" name="body" style="height: 600px;" ></textArea>
+                            <% if(errors.body){ %>
+                             <span class=""><%= errors.body.message %></span>
+                            <% } %>
+                            <footer class="card-footer">
+                                <div class="card-footer-item">
+                                    <button type="button" class="btn btn-reset text-muted" onclick="history.back();">
+                                        <i class="fas fa-arrow-left"></i> 뒤로
+                                    </button>
+                                </div>
+                                <div style="width: 1px;background-color: #eaeaea;"></div>
+                                <div class="card-footer-item">
+                                    <button type="button" class="btn btn-reset text-muted" onclick="confirmForm();" >
+                                        <i class="fas fa-pencil-alt"></i> 등록
+                                    </button>
+                                </div>
+                            </footer>
+                        </section>
+                        <hr>
+    			    </div>
+    			</form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.ckeditor.com/4.9.2/full-all/ckeditor.js"></script>
+    <script>
+        var global_editor =  CKEDITOR.replace( 'writeEditor', {
+        		height : 300,
+        		allowedContent : true,
+        		customConfig: '/js/ckeditor_config.js',
+        		filebrowserImageUploadUrl: '/upload',
+        		language: 'ko'	} );
+        
+        	CKEDITOR.editorConfig = function (config) {
+        		config.font_names = CKEDITOR.config.font_names = '나눔고딕/나눔고딕, Nanum Gothic, ng, sans-serif;맑은 고딕/Malgun Gothic;굴림/Gulim;돋움/Dotum;바탕/Batang;궁서/Gungsuh;' + CKEDITOR.config.font_names;
+        		config.enterMode = CKEDITOR.ENTER_BR;
+        	};
+        </script>
+        <script>
+            function confirmForm(){
+                $("#writeEditor").val(CKEDITOR.instances.writeEditor.getData());
+                
+                var title = $("#title").val();
+                var body  = $("#writeEditor").val();
+                
+                if(title == ""){
+                    alert("제목을 입력해주세요.");
+                    $("#title").focus();
+                    return;
+                }
+                
+                if(body == ""){
+                    alert("내용을 입력해주세요.");
+                    $("#writeEditor").focus()
+                    return;
+                }
+                
+                if(confirm("게시글을 등록하시겠습니까 ?") == true){
+                    $("#createFrm").submit();
+                }
+                else{
+                    return ;
+                }
+                
+            }
+        </script>
+<% include ../partials/footer %>
