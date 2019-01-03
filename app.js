@@ -17,7 +17,7 @@ db.on("error", function(err){
 });
 
 // DB setting
-mongoose.connect("mongodb://dbuser:wotjd11442@ds243049.mlab.com:43049/mdb", {useCreateIndex: true,useNewUrlParser: true});
+mongoose.connect("", {useCreateIndex: true,useNewUrlParser: true});
 
 autoIncrement.initialize(mongoose.connection);
 
